@@ -14,7 +14,7 @@ namespace Client
 {
     public partial class Client : Form
     {
-        TcpClient klient;
+        TcpClient client;
         int port = 12345;
         public Client()
         {
@@ -28,18 +28,31 @@ namespace Client
 
         private void btnSend_Click(object sender, EventArgs e)
         {
-            IPAddress adress = IPAddress.Parse(tbxIp.Text);
-            klient = new TcpClient();
-            klient.NoDelay = true;
-            klient.Connect(adress, port);
 
-            if(klient.Connected)
+            if(client.Connected)
             {
                 byte[] utData = Encoding.Unicode.GetBytes(tbxMessage.Text);
-                klient.GetStream().Write(utData, 0, utData.Length);
-                klient.Close();
-
+                client.GetStream().Write(utData, 0, utData.Length);
             }
+        }
+
+        private void btnConnect_Click(object sender, EventArgs e)
+        {
+            IPAddress adress = IPAddress.Parse(tbxIp.Text);
+            client = new TcpClient();
+            client.NoDelay = true;
+            client.Connect(adress, port);
+            btnConnect.Enabled = false;
+            btnDisconnect.Enabled = true;
+            btnSend.Enabled = true;
+        }
+
+        private void btnDisconnect_Click(object sender, EventArgs e)
+        {
+            client.Close();
+            btnConnect.Enabled = true;
+            btnDisconnect.Enabled = false;
+            btnSend.Enabled= false;
         }
     }
 }

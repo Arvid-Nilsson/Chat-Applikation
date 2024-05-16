@@ -9,8 +9,8 @@ namespace Server
 {
     public partial class Form1 : Form
     {
-        TcpListener lyssnare;
-        TcpClient klient;
+        TcpListener listener;
+        TcpClient client;
         int port = 12345;
 
         public Form1()
@@ -22,45 +22,45 @@ namespace Server
         {
             try
             {
-                lyssnare = new TcpListener(IPAddress.Any, port);
-                lyssnare.Start();
+                listener = new TcpListener(IPAddress.Any, port);
+                listener.Start();
             }
             catch (Exception error) { MessageBox.Show(error.Message, Text); return; }
 
             btnStart.Enabled = false;
-            StartaMottagning();
+            StartReciving();
         }
 
 
 
-        public async Task StartaMottagning()
+        public async Task StartReciving()
         {
             while (true)
             {
-                TcpClient klient = await lyssnare.AcceptTcpClientAsync();
-                HanteraKlient(klient);
+                client = await listener.AcceptTcpClientAsync();
+                ManageClient(client);
             }
         }
 
-        private async void HanteraKlient(TcpClient klient)
+        private async void ManageClient(TcpClient client)
         {
             byte[] buffert = new byte[1024];
             int n;
 
             try
             {
-                while ((n = await klient.GetStream().ReadAsync(buffert, 0, buffert.Length)) != 0)
+                while ((n = await client.GetStream().ReadAsync(buffert, 0, buffert.Length)) != 0)
                 {
                     string meddelande = Encoding.Unicode.GetString(buffert, 0, n);
                     LoggaMeddelande(meddelande);
 
                     // Skicka meddelandet till alla anslutna klienter om du vill
-                    // SkickaTillAllaKlienter(meddelande);
+                    //SkickaTillAllaKlienter(meddelande);
                 }
             }
             catch (Exception error) { MessageBox.Show(error.Message, Text); }
 
-            klient.Close();
+            client.Close();
         }
 
         private void LoggaMeddelande(string meddelande)
@@ -76,7 +76,7 @@ namespace Server
         }
 
 
-        public async void StartaLäsning(TcpClient k)
+        public async void StartReading(TcpClient k)
         {
             byte[] buffert = new byte[1024];
             int n = 0;
@@ -88,7 +88,7 @@ namespace Server
 
             tbxIncommingMessages.AppendText(Encoding.Unicode.GetString(buffert, 0, n));
 
-            StartaLäsning(k);
+            StartReading(k);
         }
 
         private void Form1_Load(object sender, EventArgs e)
