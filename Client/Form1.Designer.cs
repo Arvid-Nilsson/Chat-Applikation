@@ -44,27 +44,24 @@
             // lblIp
             // 
             this.lblIp.AutoSize = true;
-            this.lblIp.Location = new System.Drawing.Point(58, 125);
-            this.lblIp.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblIp.Location = new System.Drawing.Point(87, 192);
             this.lblIp.Name = "lblIp";
-            this.lblIp.Size = new System.Drawing.Size(52, 13);
+            this.lblIp.Size = new System.Drawing.Size(79, 20);
             this.lblIp.TabIndex = 0;
             this.lblIp.Text = "IP-Adress";
             // 
             // tbxIp
             // 
-            this.tbxIp.Location = new System.Drawing.Point(146, 125);
-            this.tbxIp.Margin = new System.Windows.Forms.Padding(2);
+            this.tbxIp.Location = new System.Drawing.Point(219, 192);
             this.tbxIp.Name = "tbxIp";
-            this.tbxIp.Size = new System.Drawing.Size(68, 20);
+            this.tbxIp.Size = new System.Drawing.Size(100, 26);
             this.tbxIp.TabIndex = 1;
             // 
             // btnConnect
             // 
-            this.btnConnect.Location = new System.Drawing.Point(60, 178);
-            this.btnConnect.Margin = new System.Windows.Forms.Padding(2);
+            this.btnConnect.Location = new System.Drawing.Point(90, 274);
             this.btnConnect.Name = "btnConnect";
-            this.btnConnect.Size = new System.Drawing.Size(57, 21);
+            this.btnConnect.Size = new System.Drawing.Size(86, 32);
             this.btnConnect.TabIndex = 2;
             this.btnConnect.Text = "Anslut";
             this.btnConnect.UseVisualStyleBackColor = true;
@@ -73,20 +70,18 @@
             // tbxMessages
             // 
             this.tbxMessages.Enabled = false;
-            this.tbxMessages.Location = new System.Drawing.Point(60, 219);
-            this.tbxMessages.Margin = new System.Windows.Forms.Padding(2);
+            this.tbxMessages.Location = new System.Drawing.Point(90, 337);
             this.tbxMessages.Multiline = true;
             this.tbxMessages.Name = "tbxMessages";
-            this.tbxMessages.Size = new System.Drawing.Size(154, 51);
+            this.tbxMessages.Size = new System.Drawing.Size(229, 76);
             this.tbxMessages.TabIndex = 3;
             // 
             // btnSend
             // 
             this.btnSend.Enabled = false;
-            this.btnSend.Location = new System.Drawing.Point(146, 325);
-            this.btnSend.Margin = new System.Windows.Forms.Padding(2);
+            this.btnSend.Location = new System.Drawing.Point(219, 500);
             this.btnSend.Name = "btnSend";
-            this.btnSend.Size = new System.Drawing.Size(58, 21);
+            this.btnSend.Size = new System.Drawing.Size(87, 32);
             this.btnSend.TabIndex = 4;
             this.btnSend.Text = "Sänd";
             this.btnSend.UseVisualStyleBackColor = true;
@@ -95,10 +90,9 @@
             // btnDisconnect
             // 
             this.btnDisconnect.Enabled = false;
-            this.btnDisconnect.Location = new System.Drawing.Point(146, 178);
-            this.btnDisconnect.Margin = new System.Windows.Forms.Padding(2);
+            this.btnDisconnect.Location = new System.Drawing.Point(219, 274);
             this.btnDisconnect.Name = "btnDisconnect";
-            this.btnDisconnect.Size = new System.Drawing.Size(82, 21);
+            this.btnDisconnect.Size = new System.Drawing.Size(123, 32);
             this.btnDisconnect.TabIndex = 5;
             this.btnDisconnect.Text = "Koppla ifrån";
             this.btnDisconnect.UseVisualStyleBackColor = true;
@@ -106,49 +100,54 @@
             // 
             // tbxSendMessage
             // 
-            this.tbxSendMessage.Location = new System.Drawing.Point(60, 295);
+            this.tbxSendMessage.Location = new System.Drawing.Point(90, 454);
+            this.tbxSendMessage.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tbxSendMessage.Name = "tbxSendMessage";
-            this.tbxSendMessage.Size = new System.Drawing.Size(154, 20);
+            this.tbxSendMessage.Size = new System.Drawing.Size(229, 26);
             this.tbxSendMessage.TabIndex = 6;
             // 
             // tbxName
             // 
-            this.tbxName.Location = new System.Drawing.Point(114, 26);
+            this.tbxName.Location = new System.Drawing.Point(171, 40);
+            this.tbxName.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tbxName.Name = "tbxName";
-            this.tbxName.Size = new System.Drawing.Size(100, 20);
+            this.tbxName.Size = new System.Drawing.Size(148, 26);
             this.tbxName.TabIndex = 7;
             // 
             // lblName
             // 
             this.lblName.AutoSize = true;
-            this.lblName.Location = new System.Drawing.Point(39, 29);
+            this.lblName.Location = new System.Drawing.Point(58, 45);
+            this.lblName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(33, 13);
+            this.lblName.Size = new System.Drawing.Size(51, 20);
             this.lblName.TabIndex = 8;
-            this.lblName.Text = "name";
+            this.lblName.Text = "Namn";
             // 
             // lblPronouns
             // 
             this.lblPronouns.AutoSize = true;
-            this.lblPronouns.Location = new System.Drawing.Point(39, 65);
+            this.lblPronouns.Location = new System.Drawing.Point(58, 100);
+            this.lblPronouns.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblPronouns.Name = "lblPronouns";
-            this.lblPronouns.Size = new System.Drawing.Size(52, 13);
+            this.lblPronouns.Size = new System.Drawing.Size(82, 20);
             this.lblPronouns.TabIndex = 10;
-            this.lblPronouns.Text = "Pronouns";
+            this.lblPronouns.Text = "Pronomen";
             // 
             // tbxPronouns
             // 
-            this.tbxPronouns.Location = new System.Drawing.Point(114, 62);
+            this.tbxPronouns.Location = new System.Drawing.Point(171, 95);
+            this.tbxPronouns.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tbxPronouns.Name = "tbxPronouns";
-            this.tbxPronouns.Size = new System.Drawing.Size(100, 20);
+            this.tbxPronouns.Size = new System.Drawing.Size(148, 26);
             this.tbxPronouns.TabIndex = 9;
             this.tbxPronouns.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
             // Client
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(267, 367);
+            this.ClientSize = new System.Drawing.Size(400, 565);
             this.Controls.Add(this.lblPronouns);
             this.Controls.Add(this.tbxPronouns);
             this.Controls.Add(this.lblName);
@@ -160,7 +159,6 @@
             this.Controls.Add(this.btnConnect);
             this.Controls.Add(this.tbxIp);
             this.Controls.Add(this.lblIp);
-            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Client";
             this.Text = "Client";
             this.Load += new System.EventHandler(this.Form1_Load);

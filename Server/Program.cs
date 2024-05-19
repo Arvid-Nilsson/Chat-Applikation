@@ -12,6 +12,7 @@ namespace Program
     {
         //Creating list of connected clients
         static List<TcpClient> clients = new List<TcpClient>();
+
         static int port = 12345;
 
         static void Main(string[] args)
