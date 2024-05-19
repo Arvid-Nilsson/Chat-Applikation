@@ -31,9 +31,10 @@
             this.lblIp = new System.Windows.Forms.Label();
             this.tbxIp = new System.Windows.Forms.TextBox();
             this.btnConnect = new System.Windows.Forms.Button();
-            this.tbxMessage = new System.Windows.Forms.TextBox();
+            this.tbxMessages = new System.Windows.Forms.TextBox();
             this.btnSend = new System.Windows.Forms.Button();
             this.btnDisconnect = new System.Windows.Forms.Button();
+            this.tbxSendMessage = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // lblIp
@@ -65,14 +66,15 @@
             this.btnConnect.UseVisualStyleBackColor = true;
             this.btnConnect.Click += new System.EventHandler(this.btnConnect_Click);
             // 
-            // tbxMessage
+            // tbxMessages
             // 
-            this.tbxMessage.Location = new System.Drawing.Point(57, 174);
-            this.tbxMessage.Margin = new System.Windows.Forms.Padding(2);
-            this.tbxMessage.Multiline = true;
-            this.tbxMessage.Name = "tbxMessage";
-            this.tbxMessage.Size = new System.Drawing.Size(145, 81);
-            this.tbxMessage.TabIndex = 3;
+            this.tbxMessages.Enabled = false;
+            this.tbxMessages.Location = new System.Drawing.Point(57, 174);
+            this.tbxMessages.Margin = new System.Windows.Forms.Padding(2);
+            this.tbxMessages.Multiline = true;
+            this.tbxMessages.Name = "tbxMessages";
+            this.tbxMessages.Size = new System.Drawing.Size(154, 51);
+            this.tbxMessages.TabIndex = 3;
             // 
             // btnSend
             // 
@@ -98,14 +100,22 @@
             this.btnDisconnect.UseVisualStyleBackColor = true;
             this.btnDisconnect.Click += new System.EventHandler(this.btnDisconnect_Click);
             // 
+            // tbxSendMessage
+            // 
+            this.tbxSendMessage.Location = new System.Drawing.Point(57, 250);
+            this.tbxSendMessage.Name = "tbxSendMessage";
+            this.tbxSendMessage.Size = new System.Drawing.Size(154, 20);
+            this.tbxSendMessage.TabIndex = 6;
+            // 
             // Client
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(267, 367);
+            this.Controls.Add(this.tbxSendMessage);
             this.Controls.Add(this.btnDisconnect);
             this.Controls.Add(this.btnSend);
-            this.Controls.Add(this.tbxMessage);
+            this.Controls.Add(this.tbxMessages);
             this.Controls.Add(this.btnConnect);
             this.Controls.Add(this.tbxIp);
             this.Controls.Add(this.lblIp);
@@ -123,9 +133,10 @@
         private System.Windows.Forms.Label lblIp;
         private System.Windows.Forms.TextBox tbxIp;
         private System.Windows.Forms.Button btnConnect;
-        private System.Windows.Forms.TextBox tbxMessage;
+        private System.Windows.Forms.TextBox tbxMessages;
         private System.Windows.Forms.Button btnSend;
         private System.Windows.Forms.Button btnDisconnect;
+        private System.Windows.Forms.TextBox tbxSendMessage;
     }
 }
 
