@@ -14,6 +14,7 @@ namespace Client
         private StreamWriter writer;
         private StreamReader reader;
         private int port = 12345;
+        public user currentUser = new user();
 
         public Client()
         {
@@ -22,39 +23,55 @@ namespace Client
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            // Initialization code if needed
+            
         }
 
         private void btnSend_Click(object sender, EventArgs e)
         {
+            //If client exists and is connected
             if (client != null && client.Connected)
             {
+                //Take message from textbox and formating it with pronouns and name
                 string message = tbxSendMessage.Text;
+                message = currentUser.formatMessage(message);
+
+                //Sending message to server 
                 writer.WriteLine(message);
-                writer.Flush(); // Ensure the message is sent immediately
+                writer.Flush(); 
+
+                //Write message to textbox and clearing sending textbox
                 Invoke(new MethodInvoker(() =>
                 {
                     tbxMessages.AppendText(message + Environment.NewLine);
                 }));
+                tbxSendMessage.Text = string.Empty;
             }
         }
 
         private void btnConnect_Click(object sender, EventArgs e)
         {
+            //Create client
             IPAddress address = IPAddress.Parse(tbxIp.Text);
             client = new TcpClient();
             client.NoDelay = true;
             client.Connect(address, port);
 
+            //Create writer and reader to comunicate with server
             writer = new StreamWriter(client.GetStream(), Encoding.Unicode);
             reader = new StreamReader(client.GetStream(), Encoding.Unicode);
+            writer.AutoFlush = true;
 
-            writer.AutoFlush = true; // Automatically flush after every write
+            //Set user credentials
+            currentUser.username = tbxName.Text;
+            currentUser.pronouns = tbxPronouns.Text;
 
             btnConnect.Enabled = false;
             btnDisconnect.Enabled = true;
             btnSend.Enabled = true;
+            tbxName.Enabled = false;
+            tbxPronouns.Enabled = false;
 
+            //Runs receiveMessages function in parallel 
             Task.Run(() => ReceiveMessages());
         }
 
@@ -62,6 +79,7 @@ namespace Client
         {
             try
             {
+                //writes all incomming messages to textbox
                 while (client.Connected)
                 {
                     string message = reader.ReadLine();
@@ -76,12 +94,13 @@ namespace Client
             }
             catch (Exception e)
             {
-                Console.WriteLine("Error: " + e.Message);
+                Console.WriteLine($"Error: {e.Message}");
             }
         }
 
         private void btnDisconnect_Click(object sender, EventArgs e)
         {
+            //Disconnect from server
             if (writer != null)
                 writer.Close();
             if (reader != null)
@@ -92,10 +111,13 @@ namespace Client
             btnConnect.Enabled = true;
             btnDisconnect.Enabled = false;
             btnSend.Enabled = false;
+            tbxName.Enabled = true;
+            tbxPronouns.Enabled = true;
         }
 
         protected override void OnFormClosing(FormClosingEventArgs e)
         {
+            //Disconnect from server
             if (writer != null)
                 writer.Close();
             if (reader != null)
@@ -104,6 +126,11 @@ namespace Client
                 client.Close();
 
             base.OnFormClosing(e);
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

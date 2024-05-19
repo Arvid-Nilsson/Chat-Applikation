@@ -6,9 +6,25 @@ using System.Threading.Tasks;
 
 namespace Client
 {
-    internal class user
+    public class user
     {
-        string username;
-        
+        private string _username;
+        private string _pronouns;
+
+        public string pronouns
+        {
+            get { return _pronouns; }
+            set { _pronouns = value; }
+        }
+        public string username
+        {
+            get { return _username; }
+            set { _username = value; }
+        }
+        public string formatMessage(string message)
+        {
+            return $"({username} ({pronouns})) {message}";
+        }
     }
 }
+ 
